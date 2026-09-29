@@ -3,9 +3,16 @@ package org.jetbrains.java.decompiler.util.token;
 import org.jetbrains.java.decompiler.main.extern.TextTokenVisitor;
 import org.jetbrains.java.decompiler.struct.gen.MethodDescriptor;
 
-public class LambdaTextToken extends MethodTextToken {
+public class LambdaTextToken extends TextToken {
+  public final String className;
+  public final String name;
+  public final MethodDescriptor descriptor;
+
   public LambdaTextToken(int start, int length, String className, String name, MethodDescriptor descriptor) {
-    super(start, length, false, className, name, descriptor);
+    super(start, length, false);
+    this.className = className;
+    this.name = name;
+    this.descriptor = descriptor;
   }
 
   @Override
